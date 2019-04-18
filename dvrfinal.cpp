@@ -55,7 +55,7 @@ void displayfn(){
 		cout<<"-";
 	cout<<"\n";
 }
-int main(){
+void getdata(){
 	int n,pn,a,b,c;
 	cout<<"Enter number of routers: ";
 	cin>>n;
@@ -90,9 +90,9 @@ int main(){
 		loctable[a][b]=b;
 		loctable[b][a]=a;
 	}
-	cout<<"\n\nTables before :\n";
-	displayfn();
-	cout<<"\n";
+}
+void routerUpdate(){
+	int n=loctable.size();
 	for(int k=0;k<n-1;k++){ 				//n-1 iterations for stable network
 		cout<<"\nIteration "<<k+1<<"\n";
 		for(int i=0;i<n;i++){				//Check Each router
@@ -104,5 +104,13 @@ int main(){
 		}	
 		displayfn();
 	}
+}
+int main(){
+	getdata();
+	cout<<"\n\nInitial Tables :\n";
+	displayfn();
+	cout<<"\n";
+	routerUpdate();
+	
 	return 0;
 }
